@@ -1,12 +1,15 @@
 {
   "name": "andyai-operational-memory",
-  "version": "0.5.0",
+  "version": "1.0.6",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "tsx src/server.ts",
     "cli": "tsx src/cli.ts",
     "check": "tsc --noEmit",
+    "test": "node --test tests/**/*.test.mjs",
+    "test:trust": "node --test tests/trust/**/*.test.mjs",
+    "verify:trust-folder": "node scripts/verify-trust-folder.mjs",
     "export:bundle": "tsx src/export-bundle.ts",
     "verify:bundle": "tsx src/verify-bundle.ts",
     "replay:export": "tsx src/replay.ts",
@@ -14,7 +17,14 @@
     "trust:validate-replay": "node scripts/validate-replay-manifest.mjs",
     "trust:release-manifest": "node scripts/generate-release-manifest.mjs",
     "trust:report": "node scripts/generate-trust-report.mjs",
-    "trust:all": "npm run trust:validate-bundles && npm run trust:validate-replay && npm run trust:release-manifest && npm run trust:report"
+    "trust:all": "npm run trust:validate-bundles && npm run trust:validate-replay && npm run trust:release-manifest && npm run trust:report",
+    "release:prepare": "node scripts/prepare-release-folders.mjs",
+    "release:stage": "node scripts/stage-trust-artifacts.mjs",
+    "release:build-log": "node scripts/generate-build-log.mjs",
+    "release:notes": "node scripts/generate-release-notes.mjs",
+    "release:summary": "node scripts/generate-release-summary.mjs",
+    "release:pack": "node scripts/pack-release.mjs",
+    "release:all": "npm run check && npm run test && npm run verify:trust-folder && npm run trust:all && npm run release:prepare && npm run release:stage && npm run release:build-log && npm run release:notes && npm run release:summary && npm run release:pack"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.0",
