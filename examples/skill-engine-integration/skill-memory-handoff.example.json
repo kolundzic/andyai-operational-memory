@@ -1,0 +1,19 @@
+{
+  "skill_id": "spotify-playlist-integration-check",
+  "run_id": "run_20260318_001",
+  "project_id": "festie",
+  "status": "completed",
+  "summary": "Skill execution confirmed Spotify Web API is the correct integration path, with OAuth flow completion as the remaining blocker.",
+  "result": {
+    "decision": "use_spotify_web_api",
+    "blocker": "oauth_flow_completion",
+    "next_step": "promote current integration decision and track OAuth completion"
+  },
+  "evidence": {
+    "log_path": "logs/spotify-playlist-integration-check.log",
+    "artifact_path": "artifacts/spotify-check-result.json",
+    "checksum": "sha256:examplechecksum"
+  },
+  "recommended_memory_type": "decision",
+  "recommended_tags": ["spotify", "integration", "skill-engine", "handoff"]
+}

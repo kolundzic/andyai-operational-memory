@@ -1,0 +1,9 @@
+{
+  "skill_id": "spotify-playlist-integration-check",
+  "project_id": "festie",
+  "input": {
+    "environment": "staging",
+    "scope": "playlist creation flow",
+    "objective": "confirm API path and blockers"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "project_id": "festie",
+  "memory_type": "decision",
+  "title": "Use Spotify Web API for Festie playlist flow",
+  "summary": "Derived from skill-engine execution handoff for playlist integration validation.",
+  "content": "Skill run run_20260318_001 confirmed that Spotify Web API remains the correct integration path. Remaining blocker is OAuth flow completion.",
+  "tags": ["spotify", "integration", "skill-engine", "decision"],
+  "status": "draft",
+  "confidence": 0.88,
+  "importance": 8,
+  "source": "skill-engine",
+  "source_ref": "spotify-playlist-integration-check:run_20260318_001",
+  "trust_level": "inferred",
+  "authority_level": "working"
+}
