@@ -10,37 +10,25 @@
 
 ## What this repo is
 
-AndyAI Operational Memory is a trust-aware memory system for AI workflows.
+AndyAI Operational Memory is a trust-aware memory layer for AI systems and agent workflows.
 
-It combines:
-
-- semantic retrieval
-- lifecycle-aware memory records
-- trust/evidence metadata
-- promotion gates
-- signed trust exports
-- replay-ready release artifacts
+It is built to carry:
+- durable continuity
+- lifecycle-aware records
+- trust and evidence metadata
+- replayable artifacts
+- release discipline
 
 ## Core Formula
 
 **Memory + State + Direction + Trust + Action**
 
-## Why it exists
-
-Modern AI systems often fail because context is fragmented, temporary, and hard to verify.
-
-This repo defines a practical foundation for systems that need more than chat history:
-they need durable continuity.
-
----
-
 ## Thesis
 
-Most AI memory systems stop at retrieval.
+**Semantic memory helps AI retrieve the past.**  
+**Operational memory helps AI work with continuity.**
 
-Operational Memory starts where retrieval stops.
-
-It adds:
+This repo pushes beyond retrieval by adding:
 - lifecycle
 - promotion
 - evidence
@@ -48,64 +36,37 @@ It adds:
 - replay
 - release discipline
 
-Because memory should not only be searchable.
+## Quick Start
 
-It should be usable, trusted, and portable.
+```bash
+npm install
+cp .env.example .env
+npm run check
+npm run trust:all
+npm run release:all
+```
 
----
+## Why it exists
 
-## Core Idea
+Modern AI systems often fail because context is fragmented, temporary, and hard to verify.
 
-Semantic memory is not enough.
-
-Modern AI systems fail not because models are weak,
-but because context is fragmented, temporary, and unreliable.
-
-This repo defines a new standard:
-
-👉 **Operational Memory**
-
----
-
-## Definition
-
-Operational Memory is a structured, persistent, and verifiable
-knowledge layer that connects:
-
-- Past (what happened)
-- Present (what is happening)
-- Direction (where things are going)
-- Trust (what is verified)
-- Action (what should be done)
+This repo defines a practical foundation for systems that need more than chat history:
+they need durable, trusted, operational continuity.
 
 ---
 
 ## Positioning
 
 This is not:
-
 - a chatbot
 - a note-taking app
 - a vector database demo
 
 This is:
-
 - a knowledge substrate
 - a continuity engine
 - a trust-aware memory layer
 - a foundation for agent systems
-
----
-
-## Public Positioning
-
-**Semantic memory helps AI retrieve the past.  
-Operational memory helps AI work with continuity.**
-
-A stronger version of the same idea:
-
-**AI does not become reliable when it remembers more.  
-It becomes reliable when memory is structured, trusted, and operational.**
 
 ---
 
@@ -117,6 +78,7 @@ See:
 - `RANKING_MODEL.md`
 - `GRAPH_MODEL.md`
 - `TRUST_MODEL.md`
+- `docs/interoperability.md`
 
 ### Core Layers
 
@@ -238,53 +200,6 @@ andyai-operational-memory/
 
 ---
 
-## Quick Start
-
-```bash
-npm install
-cp .env.example .env
-```
-
-Fill in your environment values in `.env`.
-
-Then run SQL files in your Supabase SQL editor in this order:
-
-1. `sql/001_extensions.sql`
-2. `sql/002_memories_table.sql`
-3. `sql/003_match_memories_function.sql`
-4. `sql/004_indexes.sql`
-5. `sql/005_memory_audit_log.sql`
-6. `sql/006_find_duplicates_function.sql`
-7. `sql/007_promote_memory_function.sql`
-
-Start the local service:
-
-```bash
-npm run dev
-```
-
----
-
-## Example Insert
-
-```bash
-npm run cli -- insert examples/insert-memory.json
-```
-
-## Example Search
-
-```bash
-npm run cli -- search "Festie Spotify integration status"
-```
-
-## Example Promote
-
-```bash
-npm run cli -- promote <memory-id> active andy "Reviewed and promoted for operational use"
-```
-
----
-
 ## Trust Commands
 
 Generate local signing keys:
@@ -314,30 +229,6 @@ npm run replay:export -- <project-id> exports
 
 ---
 
-## Trust Folder Layout
-
-```text
-trust/
-├── bundles/
-├── reports/
-├── replay/
-└── public-keys/
-```
-
-### Meaning
-
-- `bundles/` → signed trust artifacts
-- `reports/` → generated trust summaries
-- `replay/` → replay-ready exports
-- `public-keys/` → distributable verification keys
-
-Rule:
-
-- portable, reviewable artifacts belong in `trust/`
-- private keys must never be committed
-
----
-
 ## Release Discipline
 
 This repo includes CI trust gates for:
@@ -354,52 +245,11 @@ This repo includes CI trust gates for:
 npm run trust:all
 ```
 
----
-
-## One-Command Release Packaging
-
-This repo supports one-command release packaging:
+### One-command release packaging
 
 ```bash
 npm run release:all
 ```
-
-### Outputs
-
-- `dist/` → final ZIP packages
-- `release/` → build log, release notes, release summary
-- `trust/` → bundles, reports, replay manifests, public keys
-
----
-
-## Release Principle
-
-A release must be verifiable, not just present.
-
-No green CI = no trust claim.
-
-This means:
-
-- no broken bundle structure
-- no drifting replay manifests
-- no release package without validation
-- no trust language without trust artifacts
-
----
-
-## Why this matters
-
-Most AI systems can answer questions.
-
-Far fewer can preserve:
-
-- decision history
-- operational continuity
-- verified memory state
-- portable evidence
-- replayable context
-
-That is the gap this project is meant to explore.
 
 ---
 
@@ -418,11 +268,9 @@ This project is for:
 
 ## Current Status
 
-**v1.0.0 — Trust-Aware Operational Memory Foundation**
+**v1.0.2 — README Hero Polish**
 
-This is a public foundation release.
-
-It establishes the canonical structure, trust model, and release discipline for a governed memory system that goes beyond basic semantic retrieval.
+This release tightens the first-screen presentation while preserving the trust-aware architecture, lifecycle model, and release discipline established in v1.0.0 and v1.0.1.
 
 ---
 
