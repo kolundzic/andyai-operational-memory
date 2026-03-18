@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "andyai-operational-memory-client"
+version = "0.1.0"
+description = "Starter Python client for AndyAI Operational Memory"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Andrija Kolundzic" }
+]
+dependencies = [
+  "requests>=2.31.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["andyai_operational_memory_client*"]
