@@ -9,7 +9,28 @@ const app = express();
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
-  res.json({ ok: true, service: "andyai-operational-memory", version: "0.3.0" });
+  res.json({
+    ok: true,
+    service: "andyai-operational-memory",
+    version: "1.0.7",
+    transport: "http",
+  });
+});
+
+app.get("/api/info", (_req, res) => {
+  res.json({
+    ok: true,
+    service: "andyai-operational-memory",
+    version: "1.0.7",
+    endpoints: [
+      "GET /health",
+      "GET /api/info",
+      "POST /memory/insert",
+      "POST /memory/search",
+      "POST /memory/search-mcp",
+      "POST /memory/promote",
+    ],
+  });
 });
 
 app.post("/memory/insert", async (req, res) => {

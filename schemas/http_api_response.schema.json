@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OperationalMemoryHttpResponse",
+  "type": "object",
+  "required": ["ok"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "count": { "type": "integer" },
+    "result": {},
+    "error": { "type": "string" },
+    "service": { "type": "string" },
+    "version": { "type": "string" }
+  }
+}

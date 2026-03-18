@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "service": "andyai-operational-memory",
+  "version": "1.0.7",
+  "transport": "http"
+}
