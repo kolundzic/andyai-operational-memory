@@ -1,0 +1,47 @@
+name: Trust Release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  trust-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm install
+
+      - name: Type check
+        run: npm run check
+
+      - name: Validate trust bundles
+        run: node scripts/validate-trust-bundle.mjs
+
+      - name: Validate replay manifests
+        run: node scripts/validate-replay-manifest.mjs
+
+      - name: Generate release manifest
+        run: node scripts/generate-release-manifest.mjs
+
+      - name: Generate trust report
+        run: node scripts/generate-trust-report.mjs
+
+      - name: Upload trust artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: trust-artifacts
+          path: |
+            trust/reports/
+            trust/release-manifest.json

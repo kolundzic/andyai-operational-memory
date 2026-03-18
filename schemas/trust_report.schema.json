@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrustReport",
+  "type": "object",
+  "required": [
+    "generated_at",
+    "status",
+    "summary"
+  ],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "status": { "type": "string" },
+    "summary": {
+      "type": "object",
+      "required": ["bundle_count", "replay_count", "issues"],
+      "properties": {
+        "bundle_count": { "type": "integer" },
+        "replay_count": { "type": "integer" },
+        "issues": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

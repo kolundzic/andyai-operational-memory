@@ -1,6 +1,6 @@
 {
   "name": "andyai-operational-memory",
-  "version": "0.2.0",
+  "version": "0.5.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,12 @@
     "check": "tsc --noEmit",
     "export:bundle": "tsx src/export-bundle.ts",
     "verify:bundle": "tsx src/verify-bundle.ts",
-    "replay:export": "tsx src/replay.ts"
+    "replay:export": "tsx src/replay.ts",
+    "trust:validate-bundles": "node scripts/validate-trust-bundle.mjs",
+    "trust:validate-replay": "node scripts/validate-replay-manifest.mjs",
+    "trust:release-manifest": "node scripts/generate-release-manifest.mjs",
+    "trust:report": "node scripts/generate-trust-report.mjs",
+    "trust:all": "npm run trust:validate-bundles && npm run trust:validate-replay && npm run trust:release-manifest && npm run trust:report"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.0",
