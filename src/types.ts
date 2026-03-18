@@ -26,6 +26,13 @@ export const TrustLevelSchema = z.enum([
   "production-safe",
 ]);
 
+export const AuthorityLevelSchema = z.enum([
+  "working",
+  "reviewed",
+  "approved",
+  "canonical",
+]);
+
 export const InsertMemorySchema = z.object({
   project_id: z.string().min(1),
   memory_type: MemoryTypeSchema,
@@ -33,12 +40,15 @@ export const InsertMemorySchema = z.object({
   summary: z.string().min(1),
   content: z.string().min(1),
   tags: z.array(z.string()).default([]),
-  status: MemoryStatusSchema.default("active"),
+  status: MemoryStatusSchema.default("draft"),
   confidence: z.number().min(0).max(1).default(0.5),
   importance: z.number().int().min(0).max(10).default(5),
   source: z.string().default("manual"),
+  source_ref: z.string().optional(),
   evidence_url: z.string().url().optional(),
+  evidence_hash: z.string().optional(),
   trust_level: TrustLevelSchema.default("unverified"),
+  authority_level: AuthorityLevelSchema.default("working"),
   related_to: z.array(z.string()).default([]),
   superseded_by: z.string().optional(),
   valid_from: z.string().datetime().optional(),

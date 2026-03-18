@@ -1,6 +1,9 @@
 import { supabase } from "./config.js";
 import { embedText } from "./embedder.js";
 import { rankMemory } from "./rank.js";
+import { findDuplicates } from "./dedup.js";
+import { writeAuditLog } from "./audit-service.js";
+import { computeMemoryChecksum, hashEvidence } from "./trust.js";
 import type { InsertMemoryInput, MemoryRow, SearchInput } from "./types.js";
 
 function composeMemoryText(input: InsertMemoryInput): string {
@@ -16,18 +19,56 @@ function composeMemoryText(input: InsertMemoryInput): string {
 
 export async function insertMemory(input: InsertMemoryInput) {
   const embedding = await embedText(composeMemoryText(input));
+  const duplicates = await findDuplicates({
+    embedding,
+    project_id: input.project_id,
+    threshold: 0.95,
+    limit: 3,
+  });
+
+  if (duplicates.length > 0) {
+    return {
+      ok: false,
+      blocked: true,
+      reason: "duplicate_detected",
+      duplicates,
+    };
+  }
+
+  const checksum = computeMemoryChecksum(input);
+  const evidence_hash = input.evidence_url
+    ? hashEvidence(input.evidence_url)
+    : input.evidence_hash ?? null;
 
   const { data, error } = await supabase
     .from("memories")
     .insert({
       ...input,
+      checksum,
+      evidence_hash,
       embedding,
     })
-    .select("id, title, memory_type, project_id, status")
+    .select("id, title, memory_type, project_id, status, trust_level, authority_level")
     .single();
 
   if (error) throw error;
-  return data;
+
+  await writeAuditLog({
+    memory_id: data.id,
+    event_type: "created",
+    payload: {
+      memory_type: data.memory_type,
+      status: data.status,
+      trust_level: data.trust_level,
+      authority_level: data.authority_level,
+    },
+  });
+
+  return {
+    ok: true,
+    blocked: false,
+    result: data,
+  };
 }
 
 export async function searchMemories(input: SearchInput) {
