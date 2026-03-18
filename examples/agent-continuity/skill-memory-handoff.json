@@ -1,0 +1,13 @@
+{
+  "skill_name": "spotify-decision-evaluator",
+  "project_id": "festie",
+  "handoff_type": "memory_capture",
+  "output": {
+    "memory_type": "decision",
+    "title": "Use Spotify Web API for stage playlist orchestration",
+    "summary": "Selected Spotify Web API over embedded SDKs for orchestration flexibility.",
+    "trust_level": "inferred",
+    "authority_level": "working"
+  },
+  "next_step": "insert into operational memory as draft"
+}

@@ -1,0 +1,25 @@
+{
+  "bundle_version": "0.4.0",
+  "exported_at": "2026-03-18T12:00:00Z",
+  "memory": {
+    "id": "11111111-1111-1111-1111-111111111111",
+    "project_id": "festie",
+    "memory_type": "decision",
+    "title": "Use Spotify Web API for stage playlist orchestration",
+    "summary": "Selected Spotify Web API over embedded SDKs for orchestration flexibility.",
+    "status": "verified",
+    "trust_level": "validated",
+    "authority_level": "approved",
+    "checksum": "sha256-memory-checksum"
+  },
+  "manifest": {
+    "memory_checksum": "sha256-memory-checksum",
+    "payload_checksum": "sha256-payload-checksum",
+    "signature_algorithm": "ed25519",
+    "public_key_hint": "memory-public.pem"
+  },
+  "signature": {
+    "algorithm": "ed25519",
+    "value": "BASE64_SIGNATURE_EXAMPLE"
+  }
+}

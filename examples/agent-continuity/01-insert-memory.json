@@ -1,0 +1,16 @@
+{
+  "project_id": "festie",
+  "memory_type": "decision",
+  "title": "Use Spotify Web API for stage playlist orchestration",
+  "summary": "Selected Spotify Web API over embedded SDKs for orchestration flexibility.",
+  "content": "The agent evaluated embedded playback options and the Spotify Web API. The Web API was selected because it fits multi-step orchestration, playlist management, and future shared-memory coordination better than embedded-only approaches.",
+  "tags": ["spotify", "api", "decision", "orchestration"],
+  "status": "draft",
+  "confidence": 0.91,
+  "importance": 9,
+  "source": "skill-engine",
+  "source_ref": "skill-run://festie/spotify-eval/2026-03-18",
+  "evidence_url": "https://example.com/festie/spotify-eval",
+  "trust_level": "inferred",
+  "authority_level": "working"
+}
