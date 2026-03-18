@@ -1,0 +1,13 @@
+{
+  "verified": true,
+  "bundle_version": "0.4.0",
+  "memory_id": "8d9c4d8b-0000-0000-0000-000000000000",
+  "checks": {
+    "signature_valid": true,
+    "payload_checksum_match": true,
+    "memory_checksum_match": true
+  },
+  "notes": [
+    "Bundle verification passed."
+  ]
+}

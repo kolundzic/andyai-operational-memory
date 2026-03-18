@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VerificationReport",
+  "type": "object",
+  "required": [
+    "verified",
+    "bundle_version",
+    "memory_id",
+    "checks"
+  ],
+  "properties": {
+    "verified": { "type": "boolean" },
+    "bundle_version": { "type": "string" },
+    "memory_id": { "type": "string" },
+    "checks": {
+      "type": "object",
+      "required": [
+        "signature_valid",
+        "payload_checksum_match",
+        "memory_checksum_match"
+      ],
+      "properties": {
+        "signature_valid": { "type": "boolean" },
+        "payload_checksum_match": { "type": "boolean" },
+        "memory_checksum_match": { "type": "boolean" }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

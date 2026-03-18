@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrustBundle",
+  "type": "object",
+  "required": [
+    "bundle_version",
+    "exported_at",
+    "memory",
+    "manifest",
+    "signature"
+  ],
+  "properties": {
+    "bundle_version": { "type": "string" },
+    "exported_at": { "type": "string" },
+    "memory": { "type": "object" },
+    "manifest": {
+      "type": "object",
+      "required": [
+        "memory_checksum",
+        "payload_checksum",
+        "signature_algorithm",
+        "public_key_hint"
+      ],
+      "properties": {
+        "memory_checksum": { "type": "string" },
+        "payload_checksum": { "type": "string" },
+        "signature_algorithm": { "type": "string" },
+        "public_key_hint": { "type": "string" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "required": ["algorithm", "value"],
+      "properties": {
+        "algorithm": { "type": "string" },
+        "value": { "type": "string" }
+      }
+    }
+  }
+}

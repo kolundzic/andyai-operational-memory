@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "tsx src/server.ts",
     "cli": "tsx src/cli.ts",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "export:bundle": "tsx src/export-bundle.ts",
+    "verify:bundle": "tsx src/verify-bundle.ts",
+    "replay:export": "tsx src/replay.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.0",
