@@ -1,0 +1,13 @@
+{
+  "project_id": "festie",
+  "memory_type": "decision",
+  "title": "Use Spotify Web API",
+  "summary": "Selected Spotify Web API for stage playlists.",
+  "content": "We chose the Spotify Web API over embedded alternatives because it is more flexible for playlist orchestration and multi-agent workflows. Current blocker is OAuth flow completion and rate limit handling.",
+  "tags": ["spotify", "api", "decision", "integration"],
+  "status": "active",
+  "confidence": 0.92,
+  "importance": 9,
+  "source": "manual",
+  "trust_level": "validated"
+}

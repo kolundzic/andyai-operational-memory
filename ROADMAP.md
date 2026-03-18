@@ -8,6 +8,7 @@
 ## v0.2
 - memory engine
 - record schema
+- API and CLI skeleton
 
 ## v0.3
 - promotion + dedup

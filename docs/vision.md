@@ -1,14 +1,7 @@
 # 🌍 Vision
 
-AI systems without memory are stateless tools.
-
-AI systems with operational memory become:
-
-- reliable
-- auditable
-- scalable
-
----
+AI without memory = tool  
+AI with memory = system
 
 ## Endgame
 
