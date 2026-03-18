@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-03-18T13:00:00Z",
+  "version": "0.6.0",
+  "trust_bundles": [
+    "memory-11111111-1111-1111-1111-111111111111.trust.json"
+  ],
+  "replay_manifests": [
+    "replay-festie.json"
+  ],
+  "trust_reports": [
+    "trust-report.json"
+  ],
+  "public_keys": [
+    "memory-public.pem"
+  ],
+  "release_files": [
+    "BUILD_LOG.md",
+    "RELEASE_NOTES.md",
+    "release-summary.json"
+  ]
+}
